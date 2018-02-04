@@ -4,6 +4,7 @@
 #include <linux/string.h>
 
 #include <soc/qcom/lge/board_lge.h>
+#include <linux/slab.h>
 #include <linux/of.h>
 #include <linux/of_fdt.h>
 #include <linux/platform_device.h>
@@ -484,7 +485,8 @@ static enum lge_boot_mode_type lge_boot_mode = LGE_BOOT_MODE_NORMAL;
 int __init lge_boot_mode_init(char *s)
 {
 	if (!strcmp(s, "charger"))
-		lge_boot_mode = LGE_BOOT_MODE_CHARGER;
+		/* lge_boot_mode = LGE_BOOT_MODE_CHARGER; */
+		lge_boot_mode = LGE_BOOT_MODE_CHARGERLOGO;
 	else if (!strcmp(s, "chargerlogo"))
 		lge_boot_mode = LGE_BOOT_MODE_CHARGERLOGO;
 	else if (!strcmp(s, "qem_56k"))
